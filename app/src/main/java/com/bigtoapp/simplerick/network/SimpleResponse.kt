@@ -1,4 +1,4 @@
-package com.bigtoapp.simplerick
+package com.bigtoapp.simplerick.network
 
 import retrofit2.Response
 import java.lang.Exception

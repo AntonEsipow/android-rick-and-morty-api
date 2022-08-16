@@ -1,5 +1,6 @@
-package com.bigtoapp.simplerick
+package com.bigtoapp.simplerick.network
 
+import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import retrofit2.Response
 
 class ApiClient(

@@ -2,22 +2,11 @@ package com.bigtoapp.simplerick
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
-import com.bigtoapp.simplerick.NetworkLayer.rickAndMortyService
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.squareup.picasso.Picasso
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val originTextView = findViewById<AppCompatTextView>(R.id.originTextView)
         val speciesTextView = findViewById<AppCompatTextView>(R.id.speciesTextView)
 
-        viewModel.refreshCharacter(97)
+        viewModel.refreshCharacter(57)
         viewModel.characterByIdLiveData.observe(this) { response ->
             if (response == null) {
                 Toast.makeText(

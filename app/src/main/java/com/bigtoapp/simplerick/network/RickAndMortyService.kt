@@ -1,6 +1,6 @@
-package com.bigtoapp.simplerick
+package com.bigtoapp.simplerick.network
 
-import retrofit2.Call
+import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

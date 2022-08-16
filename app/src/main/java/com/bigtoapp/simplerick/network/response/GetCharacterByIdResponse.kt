@@ -1,4 +1,4 @@
-package com.bigtoapp.simplerick
+package com.bigtoapp.simplerick.network.response
 
 data class GetCharacterByIdResponse(
     val created: String = "",
