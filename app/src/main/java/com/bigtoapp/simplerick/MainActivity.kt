@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val originTextView = findViewById<AppCompatTextView>(R.id.originTextView)
         val speciesTextView = findViewById<AppCompatTextView>(R.id.speciesTextView)
 
-        viewModel.refreshCharacter(48)
+        viewModel.refreshCharacter(97)
         viewModel.characterByIdLiveData.observe(this) { response ->
             if (response == null) {
                 Toast.makeText(
