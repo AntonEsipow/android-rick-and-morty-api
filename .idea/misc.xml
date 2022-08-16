@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/model_character_detail_data.xml" value="0.253125" />
+        <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/model_character_detail_data_point.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/model_character_detail_image.xml" value="0.253125" />
+        <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/model_character_details_header.xml" value="0.253125" />
+        <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/model_character_details_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anton/AndroidStudioProjects/SimpleRick/app/src/main/res/layout/model_loading.xml" value="0.253125" />
       </map>
     </option>
   </component>
