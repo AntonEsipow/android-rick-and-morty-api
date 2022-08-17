@@ -4,6 +4,7 @@ import com.airbnb.epoxy.EpoxyController
 import com.bigtoapp.simplerick.databinding.ModelCharacterDetailsDataPointBinding
 import com.bigtoapp.simplerick.databinding.ModelCharacterDetailsHeaderBinding
 import com.bigtoapp.simplerick.databinding.ModelCharacterDetailsImageBinding
+import com.bigtoapp.simplerick.domain.models.Character
 import com.bigtoapp.simplerick.epoxy.LoadingEpoxyModel
 import com.bigtoapp.simplerick.epoxy.ViewBindingKotlinModel
 import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
@@ -19,7 +20,7 @@ class CharacterDetailsEpoxyController : EpoxyController() {
             }
         }
 
-    var characterResponse: GetCharacterByIdResponse? = null
+    var character: Character? = null
         set(value) {
             field = value
             if (field != null) {
@@ -35,32 +36,32 @@ class CharacterDetailsEpoxyController : EpoxyController() {
             return
         }
 
-        if (characterResponse == null) {
+        if (character == null) {
             // todo error state
             return
         }
 
         // Header Model
         HeaderEpoxyModel(
-            name = characterResponse!!.name,
-            gender = characterResponse!!.gender,
-            status = characterResponse!!.status
+            name = character!!.name,
+            gender = character!!.gender,
+            status = character!!.status
         ).id("header").addTo(this)
 
         // Image Model
         ImageEpoxyModel(
-            imageUrl = characterResponse!!.image
+            imageUrl = character!!.image
         ).id("image").addTo(this)
 
         // Data point models
         DataPointEpoxyModel(
             title = "Origin",
-            description = characterResponse!!.origin.name
+            description = character!!.origin.name
         ).id("data_point_1").addTo(this)
 
         DataPointEpoxyModel(
             title = "Species",
-            description = characterResponse!!.species
+            description = character!!.species
         ).id("data_point_2").addTo(this)
     }
 
