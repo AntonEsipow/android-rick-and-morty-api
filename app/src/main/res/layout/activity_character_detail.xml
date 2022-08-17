@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CharacterDetailActivity">
 
     <com.airbnb.epoxy.EpoxyRecyclerView
         android:layout_width="match_parent"
@@ -12,6 +12,7 @@
         android:id="@+id/epoxyRecyclerView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:paddingBottom="24dp"/>
+        android:paddingBottom="24dp"
+        android:clipChildren="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
