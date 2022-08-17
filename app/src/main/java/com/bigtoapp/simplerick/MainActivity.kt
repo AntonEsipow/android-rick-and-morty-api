@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         viewModel.refreshCharacter(54)
-
         val epoxyRecyclerView = findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
     }
