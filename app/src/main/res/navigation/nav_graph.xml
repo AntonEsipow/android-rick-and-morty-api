@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/characterListFragment">
+
+    <fragment
+        android:id="@+id/characterListFragment"
+        android:name="com.bigtoapp.simplerick.CharacterListFragment"
+        android:label="Rick and Morty Characters"
+        tools:layout="@layout/fragment_character_list">
+
+        <action
+            android:id="@+id/action_characterListFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.bigtoapp.simplerick.CharacterDetailFragment"
+        android:label="Character Details"
+        tools:layout="@layout/fragment_character_detail">
+
+    <argument
+        android:name="characterId"
+        android:defaultValue="-1"
+        app:argType="integer" />
+    </fragment>
+
+</navigation>
