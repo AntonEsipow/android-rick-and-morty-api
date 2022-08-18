@@ -1,10 +1,10 @@
 package com.bigtoapp.simplerick
 
+import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
-import com.bigtoapp.simplerick.databinding.ModelCharacterDetailsDataPointBinding
-import com.bigtoapp.simplerick.databinding.ModelCharacterDetailsHeaderBinding
-import com.bigtoapp.simplerick.databinding.ModelCharacterDetailsImageBinding
+import com.bigtoapp.simplerick.databinding.*
 import com.bigtoapp.simplerick.domain.models.Character
+import com.bigtoapp.simplerick.domain.models.Episode
 import com.bigtoapp.simplerick.epoxy.LoadingEpoxyModel
 import com.bigtoapp.simplerick.epoxy.ViewBindingKotlinModel
 import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
@@ -53,6 +53,20 @@ class CharacterDetailsEpoxyController : EpoxyController() {
             imageUrl = character!!.image
         ).id("image").addTo(this)
 
+        // Episode carousel list section
+        if (character!!.episodeList.isNotEmpty()) {
+            val items = character!!.episodeList.map {
+                EpisodeCarouselItemEpoxyModel(it).id(it.id)
+            }
+
+            TitleEpoxyModel(title = "Episodes").id("title_episodes").addTo(this)
+            CarouselModel_()
+                .id("episode_carousel")
+                .models(items)
+                .numViewsToShowOnScreen(1.15f)
+                .addTo(this)
+        }
+
         // Data point models
         DataPointEpoxyModel(
             title = "Origin",
@@ -95,11 +109,30 @@ class CharacterDetailsEpoxyController : EpoxyController() {
     data class DataPointEpoxyModel(
         val title: String,
         val description: String
-    ) : ViewBindingKotlinModel<ModelCharacterDetailsDataPointBinding>(R.layout.model_character_details_data_point) {
+    ): ViewBindingKotlinModel<ModelCharacterDetailsDataPointBinding>(R.layout.model_character_details_data_point) {
 
         override fun ModelCharacterDetailsDataPointBinding.bind() {
             labelTextView.text = title
             textView.text = description
+        }
+    }
+
+    data class TitleEpoxyModel(
+        val title: String
+    ): ViewBindingKotlinModel<ModelTitleBinding>(R.layout.model_title) {
+
+        override fun ModelTitleBinding.bind() {
+            titleTextView.text = title
+        }
+    }
+
+    data class  EpisodeCarouselItemEpoxyModel(
+        val episode: Episode
+    ): ViewBindingKotlinModel<ModelEpisodeCarouselItemBinding>(R.layout.model_episode_carousel_item) {
+
+        override fun ModelEpisodeCarouselItemBinding.bind() {
+            episodeTextView.text = episode.episode
+            episodeDetailsTextView.text = "${episode.name}\n${episode.airDate}"
         }
     }
 }
