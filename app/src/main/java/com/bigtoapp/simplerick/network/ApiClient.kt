@@ -2,6 +2,7 @@ package com.bigtoapp.simplerick.network
 
 import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import com.bigtoapp.simplerick.network.response.GetCharactersPageResponse
+import com.bigtoapp.simplerick.network.response.GetEpisodeByIdResponse
 import retrofit2.Response
 
 class ApiClient(
@@ -14,6 +15,14 @@ class ApiClient(
 
     suspend fun getCharactersPage(pageIndex: Int): SimpleResponse<GetCharactersPageResponse> {
         return safeApiCall { rickAndMortyService.getCharactersPage(pageIndex) }
+    }
+
+    suspend fun getEpisodeById(episodeId: Int): SimpleResponse<GetEpisodeByIdResponse> {
+        return safeApiCall { rickAndMortyService.getEpisodeById(episodeId) }
+    }
+
+    suspend fun getEpisodeRange(episodeRange: String): SimpleResponse<List<GetEpisodeByIdResponse>> {
+        return safeApiCall { rickAndMortyService.getEpisodeRange(episodeRange) }
     }
 
     private inline fun <T> safeApiCall(apiCall: () -> Response<T>): SimpleResponse<T> {
