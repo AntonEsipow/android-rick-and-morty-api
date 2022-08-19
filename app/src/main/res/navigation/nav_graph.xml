@@ -27,10 +27,12 @@
         android:label="Character Details"
         tools:layout="@layout/fragment_character_detail">
 
-    <argument
-        android:name="characterId"
-        android:defaultValue="-1"
-        app:argType="integer" />
+        <deepLink app:uri="https://simplerick.com/character/{characterId}" />
+
+        <argument
+            android:name="characterId"
+            android:defaultValue="-1"
+            app:argType="integer" />
     </fragment>
 
 </navigation>
