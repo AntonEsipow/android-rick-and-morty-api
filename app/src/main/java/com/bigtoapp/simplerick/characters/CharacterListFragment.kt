@@ -1,4 +1,4 @@
-package com.bigtoapp.simplerick
+package com.bigtoapp.simplerick.characters
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
-import com.bigtoapp.simplerick.characters.CharacterListPagingEpoxyController
-import com.bigtoapp.simplerick.characters.CharactersViewModel
+import com.bigtoapp.simplerick.R
 
 class CharacterListFragment : Fragment() {
 

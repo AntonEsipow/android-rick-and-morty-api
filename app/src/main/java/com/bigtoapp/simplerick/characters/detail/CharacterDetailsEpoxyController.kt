@@ -1,13 +1,13 @@
-package com.bigtoapp.simplerick
+package com.bigtoapp.simplerick.characters.detail
 
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
+import com.bigtoapp.simplerick.R
 import com.bigtoapp.simplerick.databinding.*
 import com.bigtoapp.simplerick.domain.models.Character
 import com.bigtoapp.simplerick.domain.models.Episode
 import com.bigtoapp.simplerick.epoxy.LoadingEpoxyModel
 import com.bigtoapp.simplerick.epoxy.ViewBindingKotlinModel
-import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import com.squareup.picasso.Picasso
 
 class CharacterDetailsEpoxyController : EpoxyController() {

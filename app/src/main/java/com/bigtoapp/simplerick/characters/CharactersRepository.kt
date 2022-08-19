@@ -1,7 +1,12 @@
 package com.bigtoapp.simplerick.characters
 
+import com.bigtoapp.simplerick.domain.mappers.CharacterMapper
+import com.bigtoapp.simplerick.domain.models.Character
 import com.bigtoapp.simplerick.network.NetworkLayer
+import com.bigtoapp.simplerick.network.SimpleRickCache
+import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import com.bigtoapp.simplerick.network.response.GetCharactersPageResponse
+import com.bigtoapp.simplerick.network.response.GetEpisodeByIdResponse
 
 class CharactersRepository {
 
@@ -12,6 +17,45 @@ class CharactersRepository {
             return null
         }
 
+        return request.body
+    }
+
+    suspend fun getCharacterById(characterId: Int): Character? {
+
+        // Check the cache for our character
+        val cachedCharacter = SimpleRickCache.characterMap[characterId]
+        if (cachedCharacter != null) {
+            return cachedCharacter
+        }
+
+        val request = NetworkLayer.apiClient.getCharacterById(characterId)
+
+        if(request.failed || !request.isSuccessful) {
+            return null
+        }
+
+        val networkEpisodes = getEpisodesFromCharacterResponse(request.body)
+        val character = CharacterMapper.buildFrom(
+            response = request.body,
+            episodes = networkEpisodes
+        )
+        // Update cache & return value
+        SimpleRickCache.characterMap[characterId] = character
+        return character
+    }
+
+    private suspend fun getEpisodesFromCharacterResponse(
+        characterResponse: GetCharacterByIdResponse
+    ): List<GetEpisodeByIdResponse> {
+        val episodeRange = characterResponse.episode.map {
+            it.substring(startIndex = it.lastIndexOf("/") + 1)
+        }.toString()
+
+        val request = NetworkLayer.apiClient.getEpisodeRange(episodeRange)
+
+        if(request.failed || !request.isSuccessful) {
+            return emptyList()
+        }
         return request.body
     }
 }
