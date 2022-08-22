@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/episodeListFragment"
-        android:name="com.bigtoapp.simplerick.EpisodeListFragment"
+        android:name="com.bigtoapp.simplerick.episodes.EpisodeListFragment"
         android:label="Rick and Morty Episodes"
         tools:layout="@layout/fragment_episode_list">
 

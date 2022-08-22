@@ -3,6 +3,7 @@ package com.bigtoapp.simplerick.network
 import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import com.bigtoapp.simplerick.network.response.GetCharactersPageResponse
 import com.bigtoapp.simplerick.network.response.GetEpisodeByIdResponse
+import com.bigtoapp.simplerick.network.response.GetEpisodesPageResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -29,4 +30,9 @@ interface RickAndMortyService {
     suspend fun getEpisodeRange(
         @Path("episode-range") episodeRange: String
     ): Response<List<GetEpisodeByIdResponse>>
+
+    @GET("episode/")
+    suspend fun getEpisodesPage(
+        @Query("page") pageIndex: Int
+    ): Response<GetEpisodesPageResponse>
 }
