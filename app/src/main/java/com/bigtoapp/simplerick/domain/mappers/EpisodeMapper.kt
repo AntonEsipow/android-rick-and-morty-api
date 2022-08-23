@@ -1,17 +1,24 @@
 package com.bigtoapp.simplerick.domain.mappers
 
 import com.bigtoapp.simplerick.domain.models.Episode
+import com.bigtoapp.simplerick.network.response.GetCharacterByIdResponse
 import com.bigtoapp.simplerick.network.response.GetEpisodeByIdResponse
 
 object EpisodeMapper {
 
-    fun buildFrom(networkEpisode: GetEpisodeByIdResponse): Episode {
+    fun buildFrom(
+        networkEpisode: GetEpisodeByIdResponse,
+        networkCharacters: List<GetCharacterByIdResponse> = emptyList()
+    ): Episode {
         return Episode(
             id = networkEpisode.id,
             name = networkEpisode.name,
             airDate = networkEpisode.air_date,
             seasonNumber = getSeasonNumberFromEpisodeString(networkEpisode.episode),
-            episodeNumber = getEpisodeNumberFromEpisodeString(networkEpisode.episode)
+            episodeNumber = getEpisodeNumberFromEpisodeString(networkEpisode.episode),
+            characters = networkCharacters.map {
+                CharacterMapper.buildFrom(it)
+            }
         )
     }
 

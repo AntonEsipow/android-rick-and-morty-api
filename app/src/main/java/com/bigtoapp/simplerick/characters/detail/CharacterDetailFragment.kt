@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.bigtoapp.simplerick.NavGraphDirections
 import com.bigtoapp.simplerick.R
 
 class CharacterDetailFragment: Fragment() {
@@ -18,7 +19,13 @@ class CharacterDetailFragment: Fragment() {
         ViewModelProvider(this).get(CharacterDetailViewModel::class.java)
     }
 
-    private val epoxyController = CharacterDetailsEpoxyController()
+    private val epoxyController = CharacterDetailsEpoxyController { episodeclickedId ->
+        val navDirections = NavGraphDirections
+            .actionEpisodeListFragmentToEpisodeDetailBottomSheetFragment(
+                episodeId = episodeclickedId
+            )
+        findNavController().navigate(navDirections)
+    }
 
     private val safeArgs: CharacterDetailFragmentArgs by navArgs()
 

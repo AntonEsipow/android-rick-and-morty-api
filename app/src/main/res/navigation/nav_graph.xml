@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/characterListFragment">
 
+    <action
+        android:id="@+id/action_episodeListFragment_to_episodeDetailBottomSheetFragment"
+        app:destination="@id/episodeDetailBottomSheetFragment" />
+
     <fragment
         android:id="@+id/characterListFragment"
         android:name="com.bigtoapp.simplerick.characters.CharacterListFragment"
@@ -42,5 +46,17 @@
         tools:layout="@layout/fragment_episode_list">
 
     </fragment>
+
+    <dialog
+        android:id="@+id/episodeDetailBottomSheetFragment"
+        android:name="com.bigtoapp.simplerick.episodes.detail.EpisodeDetailBottomSheetFragment"
+        android:label=""
+        tools:layout="@layout/fragment_episode_detail">
+
+        <argument
+            android:name="episodeId"
+            android:defaultValue="-1"
+            app:argType="integer"/>
+    </dialog>
 
 </navigation>
