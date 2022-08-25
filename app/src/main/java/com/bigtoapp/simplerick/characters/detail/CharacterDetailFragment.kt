@@ -10,10 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.bigtoapp.simplerick.BaseFragment
 import com.bigtoapp.simplerick.NavGraphDirections
 import com.bigtoapp.simplerick.R
 
-class CharacterDetailFragment: Fragment() {
+class CharacterDetailFragment: BaseFragment(R.layout.fragment_character_detail) {
 
     private val viewModel: CharacterDetailViewModel by lazy {
         ViewModelProvider(this).get(CharacterDetailViewModel::class.java)
