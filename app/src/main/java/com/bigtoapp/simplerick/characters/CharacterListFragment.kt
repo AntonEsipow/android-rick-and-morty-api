@@ -8,10 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
-import com.bigtoapp.simplerick.BaseFragment
 import com.bigtoapp.simplerick.R
 
-class CharacterListFragment : BaseFragment(R.layout.fragment_character_list) {
+class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
 
     private val epoxyController = CharacterListPagingEpoxyController(::onCharacterSelected)
 

@@ -8,14 +8,13 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.bigtoapp.simplerick.BaseFragment
 import com.bigtoapp.simplerick.R
 import com.bigtoapp.simplerick.databinding.FragmentCharacterSearchBinding
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class CharacterSearchFragment : BaseFragment(R.layout.fragment_character_search) {
+class CharacterSearchFragment : Fragment(R.layout.fragment_character_search) {
 
     private var _binding: FragmentCharacterSearchBinding? = null
     private val binding get() = _binding!!

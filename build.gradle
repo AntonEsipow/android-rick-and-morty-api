@@ -6,17 +6,8 @@ buildscript {
     dependencies {
         def nav_version = "2.4.2"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
-        // Crashlytics Gradle plugin
-        classpath 'com.google.gms:google-services:4.3.13'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.1'
     }
 }
-
-//allprojects {
-//    repositories {
-//        google()
-//    }
-//}
 
 plugins {
     id 'com.android.application' version '7.2.1' apply false

@@ -7,16 +7,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
-import com.bigtoapp.simplerick.BaseFragment
 import com.bigtoapp.simplerick.NavGraphDirections
 import com.bigtoapp.simplerick.R
 import com.bigtoapp.simplerick.databinding.FragmentEpisodeListBinding
-import com.bigtoapp.simplerick.domain.models.Episode
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class EpisodeListFragment: BaseFragment(R.layout.fragment_episode_list) {
+class EpisodeListFragment: Fragment(R.layout.fragment_episode_list) {
 
     private var _binding: FragmentEpisodeListBinding? = null
     private val binding get() = _binding!!
